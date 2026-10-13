@@ -114,7 +114,7 @@
             btnStudentEdit = new Button();
             btnStudentAdd = new Button();
             grpStudentAddr = new GroupBox();
-            cboStudentProvince = new ComboBox();
+            cboStudentProvince = new TextBox();
             txtStudentZip = new TextBox();
             txtStudentDistrict = new TextBox();
             txtStudentSubdistrict = new TextBox();
@@ -171,6 +171,7 @@
             label38 = new Label();
             tpSearchSection = new TabPage();
             gbSectionResult = new GroupBox();
+            dgvSearchSection = new DataGridView();
             gbSectionSearch = new GroupBox();
             btnSectionClear = new Button();
             btnSectionSearch = new Button();
@@ -178,6 +179,7 @@
             label39 = new Label();
             tpSearchStudent = new TabPage();
             gbStudentResult = new GroupBox();
+            dgvSearchStudent = new DataGridView();
             picSearchStudent = new PictureBox();
             gbStudentSearch = new GroupBox();
             btnStudentClear = new Button();
@@ -186,6 +188,7 @@
             label40 = new Label();
             tpSearchEnroll = new TabPage();
             gbEnrollResult = new GroupBox();
+            dgvSearchEnroll = new DataGridView();
             gbEnrollSearch = new GroupBox();
             btnEnrollClear = new Button();
             btnEnrollSearch = new Button();
@@ -193,15 +196,12 @@
             label41 = new Label();
             tpSearchSuccess = new TabPage();
             gbSuccessResult = new GroupBox();
+            dgvSearchSuccess = new DataGridView();
             gbSuccessSearch = new GroupBox();
             btnSuccessClear = new Button();
             btnSuccessSearch = new Button();
             txtSuccessCourseId = new MaskedTextBox();
             label22 = new Label();
-            dgvSearchSection = new DataGridView();
-            dgvSearchStudent = new DataGridView();
-            dgvSearchEnroll = new DataGridView();
-            dgvSearchSuccess = new DataGridView();
             tabMain.SuspendLayout();
             tpManage.SuspendLayout();
             tabManage.SuspendLayout();
@@ -241,21 +241,21 @@
             gbCourseSearch.SuspendLayout();
             tpSearchSection.SuspendLayout();
             gbSectionResult.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvSearchSection).BeginInit();
             gbSectionSearch.SuspendLayout();
             tpSearchStudent.SuspendLayout();
             gbStudentResult.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvSearchStudent).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picSearchStudent).BeginInit();
             gbStudentSearch.SuspendLayout();
             tpSearchEnroll.SuspendLayout();
             gbEnrollResult.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvSearchEnroll).BeginInit();
             gbEnrollSearch.SuspendLayout();
             tpSearchSuccess.SuspendLayout();
             gbSuccessResult.SuspendLayout();
-            gbSuccessSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvSearchSection).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgvSearchStudent).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgvSearchEnroll).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvSearchSuccess).BeginInit();
+            gbSuccessSearch.SuspendLayout();
             SuspendLayout();
             // 
             // tabMain
@@ -333,6 +333,7 @@
             dgvTeacher.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvTeacher.Size = new Size(975, 395);
             dgvTeacher.TabIndex = 0;
+            dgvTeacher.CellMouseUp += dgvTeacher_CellMouseUp;
             // 
             // pnlTeacherBtn
             // 
@@ -354,6 +355,7 @@
             btnTeacherCancel.TabIndex = 18;
             btnTeacherCancel.Text = "ยกเลิก";
             btnTeacherCancel.UseVisualStyleBackColor = true;
+            btnTeacherCancel.Click += btnTeacherCancel_Click;
             // 
             // btnTeacherSave
             // 
@@ -363,6 +365,7 @@
             btnTeacherSave.TabIndex = 17;
             btnTeacherSave.Text = "บันทึก";
             btnTeacherSave.UseVisualStyleBackColor = true;
+            btnTeacherSave.Click += btnTeacherSave_Click;
             // 
             // btnTeacherDelete
             // 
@@ -372,6 +375,7 @@
             btnTeacherDelete.TabIndex = 16;
             btnTeacherDelete.Text = "ลบ";
             btnTeacherDelete.UseVisualStyleBackColor = true;
+            btnTeacherDelete.Click += btnTeacherDelete_Click;
             // 
             // btnTeacherEdit
             // 
@@ -381,6 +385,7 @@
             btnTeacherEdit.TabIndex = 15;
             btnTeacherEdit.Text = "แก้ไข";
             btnTeacherEdit.UseVisualStyleBackColor = true;
+            btnTeacherEdit.Click += btnTeacherEdit_Click;
             // 
             // btnTeacherAdd
             // 
@@ -390,6 +395,7 @@
             btnTeacherAdd.TabIndex = 14;
             btnTeacherAdd.Text = "เพิ่ม";
             btnTeacherAdd.UseVisualStyleBackColor = true;
+            btnTeacherAdd.Click += btnTeacherAdd_Click;
             // 
             // grpTeacher
             // 
@@ -423,6 +429,7 @@
             btnTeacherPhoto.TabIndex = 13;
             btnTeacherPhoto.Text = "เลือกรูป...";
             btnTeacherPhoto.UseVisualStyleBackColor = true;
+            btnTeacherPhoto.Click += btnTeacherPhoto_Click;
             // 
             // picTeacher
             // 
@@ -571,6 +578,7 @@
             dgvCourse.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCourse.Size = new Size(975, 375);
             dgvCourse.TabIndex = 0;
+            dgvCourse.CellMouseUp += dgvCourse_CellMouseUp;
             // 
             // pnlCourseBtn
             // 
@@ -592,6 +600,7 @@
             btnCourseCancel.TabIndex = 18;
             btnCourseCancel.Text = "ยกเลิก";
             btnCourseCancel.UseVisualStyleBackColor = true;
+            btnCourseCancel.Click += btnCourseCancel_Click;
             // 
             // btnCourseSave
             // 
@@ -601,6 +610,7 @@
             btnCourseSave.TabIndex = 17;
             btnCourseSave.Text = "บันทึก";
             btnCourseSave.UseVisualStyleBackColor = true;
+            btnCourseSave.Click += btnCourseSave_Click;
             // 
             // btnCourseDelete
             // 
@@ -610,6 +620,7 @@
             btnCourseDelete.TabIndex = 16;
             btnCourseDelete.Text = "ลบ";
             btnCourseDelete.UseVisualStyleBackColor = true;
+            btnCourseDelete.Click += btnCourseDelete_Click;
             // 
             // btnCourseEdit
             // 
@@ -619,6 +630,7 @@
             btnCourseEdit.TabIndex = 15;
             btnCourseEdit.Text = "แก้ไข";
             btnCourseEdit.UseVisualStyleBackColor = true;
+            btnCourseEdit.Click += btnCourseEdit_Click;
             // 
             // btnCourseAdd
             // 
@@ -628,6 +640,7 @@
             btnCourseAdd.TabIndex = 14;
             btnCourseAdd.Text = "เพิ่ม";
             btnCourseAdd.UseVisualStyleBackColor = true;
+            btnCourseAdd.Click += btnCourseAdd_Click;
             // 
             // grpCourse
             // 
@@ -812,6 +825,7 @@
             dgvSection.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvSection.Size = new Size(975, 390);
             dgvSection.TabIndex = 0;
+            dgvSection.CellMouseUp += dgvSection_CellMouseUp;
             // 
             // pnlSectionBtn
             // 
@@ -833,6 +847,7 @@
             btnSectionCancel.TabIndex = 18;
             btnSectionCancel.Text = "ยกเลิก";
             btnSectionCancel.UseVisualStyleBackColor = true;
+            btnSectionCancel.Click += btnSectionCancel_Click;
             // 
             // btnSectionSave
             // 
@@ -842,6 +857,7 @@
             btnSectionSave.TabIndex = 17;
             btnSectionSave.Text = "บันทึก";
             btnSectionSave.UseVisualStyleBackColor = true;
+            btnSectionSave.Click += btnSectionSave_Click;
             // 
             // btnSectionDelete
             // 
@@ -851,6 +867,7 @@
             btnSectionDelete.TabIndex = 16;
             btnSectionDelete.Text = "ลบ";
             btnSectionDelete.UseVisualStyleBackColor = true;
+            btnSectionDelete.Click += btnSectionDelete_Click;
             // 
             // btnSectionEdit
             // 
@@ -860,6 +877,7 @@
             btnSectionEdit.TabIndex = 15;
             btnSectionEdit.Text = "แก้ไข";
             btnSectionEdit.UseVisualStyleBackColor = true;
+            btnSectionEdit.Click += btnSectionEdit_Click;
             // 
             // btnSectionAdd
             // 
@@ -869,6 +887,7 @@
             btnSectionAdd.TabIndex = 14;
             btnSectionAdd.Text = "เพิ่ม";
             btnSectionAdd.UseVisualStyleBackColor = true;
+            btnSectionAdd.Click += btnSectionAdd_Click;
             // 
             // grpSection
             // 
@@ -934,7 +953,6 @@
             dtpSectionStart.Name = "dtpSectionStart";
             dtpSectionStart.Size = new Size(233, 31);
             dtpSectionStart.TabIndex = 19;
-            dtpSectionStart.ValueChanged += dtpSectionStart_ValueChanged;
             // 
             // label21
             // 
@@ -988,7 +1006,6 @@
             txtSectionRoom.Name = "txtSectionRoom";
             txtSectionRoom.Size = new Size(190, 31);
             txtSectionRoom.TabIndex = 9;
-            txtSectionRoom.TextChanged += textBox9_TextChanged;
             // 
             // txtSectionId
             // 
@@ -1073,6 +1090,7 @@
             dgvStudent.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvStudent.Size = new Size(975, 253);
             dgvStudent.TabIndex = 0;
+            dgvStudent.CellMouseUp += dgvStudent_CellMouseUp;
             // 
             // pnlStudentBtn
             // 
@@ -1094,6 +1112,7 @@
             btnStudentCancel.TabIndex = 18;
             btnStudentCancel.Text = "ยกเลิก";
             btnStudentCancel.UseVisualStyleBackColor = true;
+            btnStudentCancel.Click += btnStudentCancel_Click;
             // 
             // btnStudentSave
             // 
@@ -1103,6 +1122,7 @@
             btnStudentSave.TabIndex = 17;
             btnStudentSave.Text = "บันทึก";
             btnStudentSave.UseVisualStyleBackColor = true;
+            btnStudentSave.Click += btnStudentSave_Click;
             // 
             // btnStudentDelete
             // 
@@ -1112,6 +1132,7 @@
             btnStudentDelete.TabIndex = 16;
             btnStudentDelete.Text = "ลบ";
             btnStudentDelete.UseVisualStyleBackColor = true;
+            btnStudentDelete.Click += btnStudentDelete_Click;
             // 
             // btnStudentEdit
             // 
@@ -1121,6 +1142,7 @@
             btnStudentEdit.TabIndex = 15;
             btnStudentEdit.Text = "แก้ไข";
             btnStudentEdit.UseVisualStyleBackColor = true;
+            btnStudentEdit.Click += btnStudentEdit_Click;
             // 
             // btnStudentAdd
             // 
@@ -1130,6 +1152,7 @@
             btnStudentAdd.TabIndex = 14;
             btnStudentAdd.Text = "เพิ่ม";
             btnStudentAdd.UseVisualStyleBackColor = true;
+            btnStudentAdd.Click += btnStudentAdd_Click;
             // 
             // grpStudentAddr
             // 
@@ -1154,13 +1177,11 @@
             // 
             // cboStudentProvince
             // 
-            cboStudentProvince.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboStudentProvince.FormattingEnabled = true;
             cboStudentProvince.Location = new Point(681, 84);
+            cboStudentProvince.MaxLength = 50;
             cboStudentProvince.Name = "cboStudentProvince";
-            cboStudentProvince.Size = new Size(245, 33);
+            cboStudentProvince.Size = new Size(245, 31);
             cboStudentProvince.TabIndex = 24;
-            cboStudentProvince.SelectedIndexChanged += cboStudentProvince_SelectedIndexChanged;
             // 
             // txtStudentZip
             // 
@@ -1284,6 +1305,7 @@
             btnStudentPhoto.TabIndex = 14;
             btnStudentPhoto.Text = "เลือกรูป...";
             btnStudentPhoto.UseVisualStyleBackColor = true;
+            btnStudentPhoto.Click += btnStudentPhoto_Click;
             // 
             // picStudent
             // 
@@ -1401,6 +1423,7 @@
             dgvEnroll.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvEnroll.Size = new Size(975, 447);
             dgvEnroll.TabIndex = 0;
+            dgvEnroll.CellMouseUp += dgvEnroll_CellMouseUp;
             // 
             // pnlEnrollBtn
             // 
@@ -1422,6 +1445,7 @@
             btnEnrollCancel.TabIndex = 18;
             btnEnrollCancel.Text = "ยกเลิก";
             btnEnrollCancel.UseVisualStyleBackColor = true;
+            btnEnrollCancel.Click += btnEnrollCancel_Click;
             // 
             // btnEnrollSave
             // 
@@ -1431,6 +1455,7 @@
             btnEnrollSave.TabIndex = 17;
             btnEnrollSave.Text = "บันทึก";
             btnEnrollSave.UseVisualStyleBackColor = true;
+            btnEnrollSave.Click += btnEnrollSave_Click;
             // 
             // btnEnrollDelete
             // 
@@ -1440,6 +1465,7 @@
             btnEnrollDelete.TabIndex = 16;
             btnEnrollDelete.Text = "ลบ";
             btnEnrollDelete.UseVisualStyleBackColor = true;
+            btnEnrollDelete.Click += btnEnrollDelete_Click;
             // 
             // btnEnrollEdit
             // 
@@ -1449,6 +1475,7 @@
             btnEnrollEdit.TabIndex = 15;
             btnEnrollEdit.Text = "แก้ไข";
             btnEnrollEdit.UseVisualStyleBackColor = true;
+            btnEnrollEdit.Click += btnEnrollEdit_Click;
             // 
             // btnEnrollAdd
             // 
@@ -1458,6 +1485,7 @@
             btnEnrollAdd.TabIndex = 14;
             btnEnrollAdd.Text = "เพิ่ม";
             btnEnrollAdd.UseVisualStyleBackColor = true;
+            btnEnrollAdd.Click += btnEnrollAdd_Click;
             // 
             // grpEnroll
             // 
@@ -1511,7 +1539,6 @@
             rdoEnrollStudying.TabStop = true;
             rdoEnrollStudying.Text = "กำลังเรียน";
             rdoEnrollStudying.UseVisualStyleBackColor = true;
-            rdoEnrollStudying.CheckedChanged += radioButton1_CheckedChanged;
             // 
             // dtpEnrollDate
             // 
@@ -1678,6 +1705,7 @@
             btnCourseClear.TabIndex = 3;
             btnCourseClear.Text = "ล้างข้อมูล";
             btnCourseClear.UseVisualStyleBackColor = true;
+            btnCourseClear.Click += btnCourseClear_Click;
             // 
             // btnCourseSearch
             // 
@@ -1687,6 +1715,7 @@
             btnCourseSearch.TabIndex = 2;
             btnCourseSearch.Text = "ค้นหา";
             btnCourseSearch.UseVisualStyleBackColor = true;
+            btnCourseSearch.Click += btnCourseSearch_Click;
             // 
             // txtCourseName
             // 
@@ -1727,6 +1756,21 @@
             gbSectionResult.TabStop = false;
             gbSectionResult.Text = "ผลการค้นหา";
             // 
+            // dgvSearchSection
+            // 
+            dgvSearchSection.AllowUserToAddRows = false;
+            dgvSearchSection.AllowUserToDeleteRows = false;
+            dgvSearchSection.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvSearchSection.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvSearchSection.Location = new Point(4, 22);
+            dgvSearchSection.Name = "dgvSearchSection";
+            dgvSearchSection.ReadOnly = true;
+            dgvSearchSection.RowHeadersVisible = false;
+            dgvSearchSection.RowHeadersWidth = 62;
+            dgvSearchSection.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvSearchSection.Size = new Size(970, 489);
+            dgvSearchSection.TabIndex = 1;
+            // 
             // gbSectionSearch
             // 
             gbSectionSearch.Controls.Add(btnSectionClear);
@@ -1749,6 +1793,7 @@
             btnSectionClear.TabIndex = 3;
             btnSectionClear.Text = "ล้างข้อมูล";
             btnSectionClear.UseVisualStyleBackColor = true;
+            btnSectionClear.Click += btnSectionClear_Click;
             // 
             // btnSectionSearch
             // 
@@ -1758,6 +1803,7 @@
             btnSectionSearch.TabIndex = 2;
             btnSectionSearch.Text = "ค้นหา";
             btnSectionSearch.UseVisualStyleBackColor = true;
+            btnSectionSearch.Click += btnSectionSearch_Click;
             // 
             // txtSectionCourse
             // 
@@ -1798,10 +1844,26 @@
             gbStudentResult.TabStop = false;
             gbStudentResult.Text = "ผลการค้นหา";
             // 
+            // dgvSearchStudent
+            // 
+            dgvSearchStudent.AllowUserToAddRows = false;
+            dgvSearchStudent.AllowUserToDeleteRows = false;
+            dgvSearchStudent.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvSearchStudent.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvSearchStudent.Location = new Point(7, 22);
+            dgvSearchStudent.Name = "dgvSearchStudent";
+            dgvSearchStudent.ReadOnly = true;
+            dgvSearchStudent.RowHeadersVisible = false;
+            dgvSearchStudent.RowHeadersWidth = 62;
+            dgvSearchStudent.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvSearchStudent.Size = new Size(740, 489);
+            dgvSearchStudent.TabIndex = 14;
+            dgvSearchStudent.CellMouseUp += dgvSearchStudent_CellMouseUp;
+            // 
             // picSearchStudent
             // 
             picSearchStudent.BorderStyle = BorderStyle.FixedSingle;
-            picSearchStudent.Location = new Point(823, 42);
+            picSearchStudent.Location = new Point(805, 30);
             picSearchStudent.Name = "picSearchStudent";
             picSearchStudent.Size = new Size(130, 150);
             picSearchStudent.SizeMode = PictureBoxSizeMode.Zoom;
@@ -1830,6 +1892,7 @@
             btnStudentClear.TabIndex = 3;
             btnStudentClear.Text = "ล้างข้อมูล";
             btnStudentClear.UseVisualStyleBackColor = true;
+            btnStudentClear.Click += btnStudentClear_Click;
             // 
             // btnStudentSearch
             // 
@@ -1839,6 +1902,7 @@
             btnStudentSearch.TabIndex = 2;
             btnStudentSearch.Text = "ค้นหา";
             btnStudentSearch.UseVisualStyleBackColor = true;
+            btnStudentSearch.Click += btnStudentSearch_Click;
             // 
             // txtStudentName
             // 
@@ -1878,6 +1942,21 @@
             gbEnrollResult.TabStop = false;
             gbEnrollResult.Text = "ผลการค้นหา";
             // 
+            // dgvSearchEnroll
+            // 
+            dgvSearchEnroll.AllowUserToAddRows = false;
+            dgvSearchEnroll.AllowUserToDeleteRows = false;
+            dgvSearchEnroll.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvSearchEnroll.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvSearchEnroll.Location = new Point(7, 22);
+            dgvSearchEnroll.Name = "dgvSearchEnroll";
+            dgvSearchEnroll.ReadOnly = true;
+            dgvSearchEnroll.RowHeadersVisible = false;
+            dgvSearchEnroll.RowHeadersWidth = 62;
+            dgvSearchEnroll.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvSearchEnroll.Size = new Size(970, 489);
+            dgvSearchEnroll.TabIndex = 1;
+            // 
             // gbEnrollSearch
             // 
             gbEnrollSearch.Controls.Add(btnEnrollClear);
@@ -1900,6 +1979,7 @@
             btnEnrollClear.TabIndex = 3;
             btnEnrollClear.Text = "ล้างข้อมูล";
             btnEnrollClear.UseVisualStyleBackColor = true;
+            btnEnrollClear.Click += btnEnrollClear_Click;
             // 
             // btnEnrollSearch
             // 
@@ -1909,6 +1989,7 @@
             btnEnrollSearch.TabIndex = 2;
             btnEnrollSearch.Text = "ค้นหา";
             btnEnrollSearch.UseVisualStyleBackColor = true;
+            btnEnrollSearch.Click += btnEnrollSearch_Click;
             // 
             // txtEnrollCourse
             // 
@@ -1948,6 +2029,21 @@
             gbSuccessResult.TabStop = false;
             gbSuccessResult.Text = "ผลการค้นหา";
             // 
+            // dgvSearchSuccess
+            // 
+            dgvSearchSuccess.AllowUserToAddRows = false;
+            dgvSearchSuccess.AllowUserToDeleteRows = false;
+            dgvSearchSuccess.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvSearchSuccess.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvSearchSuccess.Location = new Point(7, 22);
+            dgvSearchSuccess.Name = "dgvSearchSuccess";
+            dgvSearchSuccess.ReadOnly = true;
+            dgvSearchSuccess.RowHeadersVisible = false;
+            dgvSearchSuccess.RowHeadersWidth = 62;
+            dgvSearchSuccess.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvSearchSuccess.Size = new Size(970, 489);
+            dgvSearchSuccess.TabIndex = 1;
+            // 
             // gbSuccessSearch
             // 
             gbSuccessSearch.Controls.Add(btnSuccessClear);
@@ -1970,6 +2066,7 @@
             btnSuccessClear.TabIndex = 3;
             btnSuccessClear.Text = "ล้างข้อมูล";
             btnSuccessClear.UseVisualStyleBackColor = true;
+            btnSuccessClear.Click += btnSuccessClear_Click;
             // 
             // btnSuccessSearch
             // 
@@ -1979,6 +2076,7 @@
             btnSuccessSearch.TabIndex = 2;
             btnSuccessSearch.Text = "ค้นหา";
             btnSuccessSearch.UseVisualStyleBackColor = true;
+            btnSuccessSearch.Click += btnSuccessSearch_Click;
             // 
             // txtSuccessCourseId
             // 
@@ -1996,66 +2094,6 @@
             label22.TabIndex = 0;
             label22.Text = "รหัสหลักสูตร";
             // 
-            // dgvSearchSection
-            // 
-            dgvSearchSection.AllowUserToAddRows = false;
-            dgvSearchSection.AllowUserToDeleteRows = false;
-            dgvSearchSection.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvSearchSection.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSearchSection.Location = new Point(4, 22);
-            dgvSearchSection.Name = "dgvSearchSection";
-            dgvSearchSection.ReadOnly = true;
-            dgvSearchSection.RowHeadersVisible = false;
-            dgvSearchSection.RowHeadersWidth = 62;
-            dgvSearchSection.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvSearchSection.Size = new Size(970, 489);
-            dgvSearchSection.TabIndex = 1;
-            // 
-            // dgvSearchStudent
-            // 
-            dgvSearchStudent.AllowUserToAddRows = false;
-            dgvSearchStudent.AllowUserToDeleteRows = false;
-            dgvSearchStudent.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvSearchStudent.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSearchStudent.Location = new Point(7, 22);
-            dgvSearchStudent.Name = "dgvSearchStudent";
-            dgvSearchStudent.ReadOnly = true;
-            dgvSearchStudent.RowHeadersVisible = false;
-            dgvSearchStudent.RowHeadersWidth = 62;
-            dgvSearchStudent.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvSearchStudent.Size = new Size(711, 489);
-            dgvSearchStudent.TabIndex = 14;
-            // 
-            // dgvSearchEnroll
-            // 
-            dgvSearchEnroll.AllowUserToAddRows = false;
-            dgvSearchEnroll.AllowUserToDeleteRows = false;
-            dgvSearchEnroll.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvSearchEnroll.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSearchEnroll.Location = new Point(7, 22);
-            dgvSearchEnroll.Name = "dgvSearchEnroll";
-            dgvSearchEnroll.ReadOnly = true;
-            dgvSearchEnroll.RowHeadersVisible = false;
-            dgvSearchEnroll.RowHeadersWidth = 62;
-            dgvSearchEnroll.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvSearchEnroll.Size = new Size(970, 489);
-            dgvSearchEnroll.TabIndex = 1;
-            // 
-            // dgvSearchSuccess
-            // 
-            dgvSearchSuccess.AllowUserToAddRows = false;
-            dgvSearchSuccess.AllowUserToDeleteRows = false;
-            dgvSearchSuccess.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvSearchSuccess.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSearchSuccess.Location = new Point(7, 22);
-            dgvSearchSuccess.Name = "dgvSearchSuccess";
-            dgvSearchSuccess.ReadOnly = true;
-            dgvSearchSuccess.RowHeadersVisible = false;
-            dgvSearchSuccess.RowHeadersWidth = 62;
-            dgvSearchSuccess.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvSearchSuccess.Size = new Size(970, 489);
-            dgvSearchSuccess.TabIndex = 1;
-            // 
             // Beta_Academy
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -2064,6 +2102,7 @@
             Controls.Add(tabMain);
             Name = "Beta_Academy";
             Text = "Beta_Academy";
+            Load += Beta_Academy_Load;
             tabMain.ResumeLayout(false);
             tpManage.ResumeLayout(false);
             tabManage.ResumeLayout(false);
@@ -2110,25 +2149,25 @@
             gbCourseSearch.PerformLayout();
             tpSearchSection.ResumeLayout(false);
             gbSectionResult.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvSearchSection).EndInit();
             gbSectionSearch.ResumeLayout(false);
             gbSectionSearch.PerformLayout();
             tpSearchStudent.ResumeLayout(false);
             gbStudentResult.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvSearchStudent).EndInit();
             ((System.ComponentModel.ISupportInitialize)picSearchStudent).EndInit();
             gbStudentSearch.ResumeLayout(false);
             gbStudentSearch.PerformLayout();
             tpSearchEnroll.ResumeLayout(false);
             gbEnrollResult.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvSearchEnroll).EndInit();
             gbEnrollSearch.ResumeLayout(false);
             gbEnrollSearch.PerformLayout();
             tpSearchSuccess.ResumeLayout(false);
             gbSuccessResult.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvSearchSuccess).EndInit();
             gbSuccessSearch.ResumeLayout(false);
             gbSuccessSearch.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvSearchSection).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvSearchStudent).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvSearchEnroll).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvSearchSuccess).EndInit();
             ResumeLayout(false);
         }
 
@@ -2242,7 +2281,7 @@
         private TextBox txtStudentFirst;
         private GroupBox grpStudentList;
         private DataGridView dgvStudent;
-        private ComboBox cboStudentProvince;
+        private TextBox cboStudentProvince; // เปลี่ยนชนิดตัวแปรใน Designer เป็น TextBox เรียบร้อยแล้ว
         private TextBox txtStudentZip;
         private TextBox txtStudentDistrict;
         private GroupBox grpEnrollList;
